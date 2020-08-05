@@ -31,7 +31,7 @@ app.use(express.urlencoded({ extended: false }));
 //middleware express session
 app.use(
     session({
-        secret: "the cat is under the table",
+        secret: process.env.SESSION_SECRET,
         resave: true,
         saveUninitialized: true,
     })
@@ -49,7 +49,7 @@ app.use((req, res, next) => {
     res.locals.success_msg = req.flash("success_msg");
     res.locals.error_msg = req.flash("error_msg");
     //error para mostrar en login
-    res.locals.error = req.flash('error')
+    res.locals.error = req.flash("error");
     next();
 });
 
