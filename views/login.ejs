@@ -1,0 +1,45 @@
+<div class="row my-5">
+    <div class="col-md-6 m-auto">
+        <div class="card card-body border-primary">
+            <h3 class="text-center mt-2">Iniciar Sesion</h3>
+            <%- include('partials/messages') %>
+            <form action="/users/login" method="POST">
+                <div class="form-group">
+                    <label for="email" class="font-weight-bold">Email</label>
+                    <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        class="form-control"
+                        placeholder="Ingresa tu Email"
+                        required
+                        value="<%= typeof email != 'undefined' ? email : '' %>"
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="password" class="font-weight-bold"
+                        >Contraseña</label
+                    >
+                    <input
+                        type="password"
+                        name="password"
+                        id="password"
+                        class="form-control"
+                        placeholder="Ingresa tu contraseña"
+                        required
+                        value="<%= typeof password != 'undefined' ? password : '' %>"
+                    />
+                </div>
+                <button class="btn btn-primary btn-lg btn-block mt-5">
+                    Iniciar Sesion
+                </button>
+            </form>
+            <div class="text-center">
+                <p class="lead mt-5">No estas registrado?</p>
+                <a class="text-secondary" href="/users/register"
+                    >Crear Cuenta</a
+                >
+            </div>
+        </div>
+    </div>
+</div>
